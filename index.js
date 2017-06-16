@@ -19,5 +19,20 @@ app.use(webpackDevMiddleware(webpack(webpackConfig)))
 //para não passar bodies arrumados
 app.use(bodyParser.urlencoded({ extended: false }))
 
+// a biblioteca io tem todos os metodos para escutar e receber eventos
+// primeiro é preciso escutar por eventos para conexão
+io.on('connection', socket =>{
+	console.log(socket.id.slice(8))
+	// o servidor deve escutar eventos de mensagem
+	socket.on('message', body =>{ // o client envia o corpo da mensagem
+		//envia a mensagem para todos os clientes sem enviar para si
+		socket.broadcast.emit('message', {
+			body,
+			from:socket.id.slice(8)
+		})
+		console.log(socket.id.slice(8))
+	})
+})
+
 //inicia o servidor, não no app
 server.listen(3000)

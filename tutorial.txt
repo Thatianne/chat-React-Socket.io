@@ -26,5 +26,6 @@
 
 *** Rodar no navegador ***
 1 - Digitar 'node .' no cmd
+2 - Ir para localhost:3000
 
 
