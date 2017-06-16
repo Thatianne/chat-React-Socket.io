@@ -1,0 +1,45 @@
+.alert-entered {
+  	color: #000000;
+  	background-color: rgb(235,235,235);
+  	border-color: #D3D3D3;
+  	text-align: center;
+}
+.alert-message-other{
+	color: #000000;
+  	background-color: rgb(245,245,245);
+  	border-color: rgb(235,235,235);
+  	border-radius: 10px;
+}
+
+.alert-my-message{	
+	color: #000000;
+  	background-color: rgb(30,144,255);
+  	border-color: rgb(65,105,225);
+  	border-radius: 10px;
+  	float: right;
+  	width: 50%;
+  	margin: 10px 15px;
+}
+
+.centering{
+	padding-right: 15px;
+	padding-top: 30px
+	padding-left: 15px;
+	border-radius: 6px;	
+}
+
+.input-message {
+    position:absolute;
+    bottom:0;
+    width:100%;
+}
+.input-message input{
+	height: 55px;
+	padding-left: 30px;
+}
+
+.row{
+	margin-right: 15px;
+ 	 margin-left: 15px;
+}
+

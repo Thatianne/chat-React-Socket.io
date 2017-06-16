@@ -23,13 +23,6 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // primeiro é preciso escutar por eventos para conexão
 io.on('connection', socket =>{
 
-	socket.on('enter', body=>{
-		socket.broadcast.emit('enter', {
-			body,
-			from:socket.id.slice(8)
-		})
-	})
-
 	// o servidor deve escutar eventos de mensagem
 	socket.on('message', body =>{ // o client envia o corpo da mensagem
 		//envia a mensagem para todos os clientes sem enviar para si

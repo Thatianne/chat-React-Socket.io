@@ -3,26 +3,25 @@ import ReactDOM from 'react-dom'
 import io from 'socket.io-client'
 import MessageOther from './MessageOther'
 import Entered from './Entered'
+import MyMessage from './MyMessage'
 
 class App extends React.Component{
+
 	constructor(props){ // configurar o estado inicial
 		super(props) //propriedades do componente
 		this.state = {messages: [], enters:[]} //definindo o estado inicial, com nenhuma mensagem
 
-		var enter = 'Se conectou' 
-		
+		var enter = 'join this chat' 
+		this.socket = io('/')
 		// envia mensagem para o servidor
-		this.socket.emit('enter', enter)
+		this.socket.emit('message', enter)
 			
 	}
 
 	// o socket.io precisa ser adicionado ao cliente, para receber as mensagens dos outros clientes
 	componentDidMount(){
-		this.socket = io('/') // conecta ao root do webserver
+		 // conecta ao root do webserver
 		// escutar por mensagens que virão
-		this.socket.on('enter', enter=>{
-			this.setState({enters:[enter, ...this.state.enters]})
-		})
 		this.socket.on('message', message =>{
 			// mudando o estado, o componente será rederizado
 			this.setState({messages:[message, ...this.state.messages]})
@@ -47,34 +46,43 @@ class App extends React.Component{
 	}
 
 	render(){
-
+		var all
 		
 		//percorrer todas as mensagens e colocá-la em um item da lista
-		const messages = this.state.messages.map((message, index) =>{
-			return <MessageOther key={index} name={message.from} message={message.body}/>
-			
+
+		all = this.state.messages.map((message, index)=>{
+
+			if(message.body != 'join this chat'){
+				var block
+				if(message.from == 'Me'){
+					block = <MyMessage key={index+'m'} message={message.body}/>
+				}else{
+					block = <MessageOther key={index} name={message.from} message={message.body}/>
+				}
+				return block
+
+			}else{
+				return <Entered key={index+'t'} name={message.from} message={message.body}/>
+			}
 		})
 
-		const enters = this.state.enters.map((enter, index) =>{
-			return 
-		})
+		console.log(all)
 
-		messages.reverse()
-
+		all = all.reverse()
+	
 		return(
-			<div>
-				<h1>Hello, Wold!</h1>				
-				{messages}
-				<div className="input-group row">
-
+			<div className="centering">
+								
+				{all}
+				
+				<div className="input-message">
 					<input 
 						type="text" 
 						className="form-control" 
 						placeholder="Escreva sua mensagem"
 						onKeyUp={this.handleSubmit}
 						aria-describedby="basic-addon1"/>
-				  				  	
-				</div>
+				</div>				
 				
 			</div>
 		)

@@ -11,14 +11,19 @@ export default class MessageOther extends React.Component{
 
 	render(){
 		return (
-			<div>
-				<h3>{this.props.name}</h3>
-
-				<div className="panel panel-default">
-				  <div className="panel-body">
-				    {this.props.message}
-				  </div>
-				</div>				
+			<div className="row">
+				<div>
+					<h3>{this.props.name}</h3>
+				</div>
+				<div className="row">
+					<div className="col-md-7 .col-sm-5">
+						<div className = "alert alert-message-other">
+							{this.props.message}
+						</div>
+					</div>
+									
+				</div>
+				
 			</div>
 		)
 	}

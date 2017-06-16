@@ -28,4 +28,19 @@
 1 - Digitar 'node .' no cmd
 2 - Ir para localhost:3000
 
+*** Css no React
+1 - Digitar 'npm install reactcss --save' no cmd
+2 - Importar no componente em que se deseja usar 'import reactCSS from 'reactcss''	
+3 - COMO USAR :
+		const styles = reactCSS({
+		  'default': {
+		    card: {
+		      background: this.props.background,
+		      boxShadow: '0 2px 4px rgba(0,0,0,.15)',
+		    },
+		  },
+		})
+
+		<div style={ styles.card } />
+
 
