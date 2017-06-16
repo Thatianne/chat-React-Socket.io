@@ -1,0 +1,30 @@
+*** Criação do projeto **
+1 - 'npm init -y' no cmd
+2 - 'npm install --save express body-parser react react-dom socket.io webpack webpack-dev-middleware babel-core babel-loader babel-preset-es2015 babel-preset-react babel-plugin-transform-class-properties'
+
+	*** Para que serve as instalações ***
+	1 - express: webframework para o node
+	2 - body-parser: plugin, transforma http 
+	3 - react: biblioteca, criar componentes
+	4 - react-dom: biblioteca, rederizar componentes
+	5 - socket.io: biblioteca para websocket
+	6 - webpack: junta todos os códigos javascript
+	7 - webpack-dev-middleware: 
+	8 - babel-core: transpiler, converte o javascript para rodar nos navegadores
+	9 - babel-loader: plugin para webpack, permite webpack usar babel
+	10 - babel-preset-es2015: 
+	11 - babel-preset-react:
+	12 - babel-plugin-transform-class-properties: transforma as classes do react para não precisar fazer binds
+
+*** Criação do arquivo de configurações ***
+1 - crie um arquivo 'webpack.config.js' com configurações básicas
+
+*** Criação dos arquivos tela ***
+1 - Criar 'index.html' com o html básico, com id em uma div e importando o bundle.js
+2 - Criar 'index.js' servidor
+3 - Criar 'index.js' cliente em 'src' (terá o component react)
+
+*** Rodar no navegador ***
+1 - Digitar 'node .' no cmd
+
+
