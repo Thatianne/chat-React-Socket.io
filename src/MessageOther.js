@@ -12,7 +12,7 @@ export default class MessageOther extends React.Component{
 	render(){
 		return (
 			<div>
-				<h3>{this.props.name}</h3>:{this.props.email}
+				<h3>{this.props.name}</h3>
 
 				<div className="panel panel-default">
 				  <div className="panel-body">
