@@ -26,15 +26,21 @@ export default class ChatContainer extends React.Component{
 		// escutar por mensagens que virão
 		this.socket.on('message', message =>{
 			// mudando o estado, o componente será rederizado			
-			var body = message.body			
+			var body = message.body	
 			var other = body.split(" ")
+			var auxBody=""
+			for(var i=2; i<other.length; i++) {
+    			auxBody = auxBody+""+other[i]+" "	
+			}
+			auxBody = auxBody.trim()
 			var msgOther = {
 				from:other[0],
 				email:other[1],
-				body:other[2]
+				body: auxBody
 			}
 
 			this.setState({messages:[msgOther, ...this.state.messages]})
+
 
 		})
 	}
@@ -51,7 +57,7 @@ export default class ChatContainer extends React.Component{
 			//o novo estado de messages é a concatenação da nova mensagem com as mensagem antigas
 			this.setState({messages:[message, ...this.state.messages]}) 
 
-			const msg = message.from+" "+" "+message.email+" "+message.body
+			const msg = message.from+" "+message.email+" "+message.body
 			console.log(msg)
 			// envia mensagem para o servidor
 			this.socket.emit('message', msg)
@@ -66,7 +72,7 @@ export default class ChatContainer extends React.Component{
 		//percorrer todas as mensagens e colocá-la em um item da lista
 
 		//console.log(this.state.messages)
-
+		console.log(this.state.messages)
 		all = this.state.messages.map((message, index)=>{
 
 			if(message.body != 'join'){
