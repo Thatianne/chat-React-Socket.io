@@ -36,3 +36,4 @@ io.on('connection', socket =>{
 
 //inicia o servidor, não no app
 server.listen(3000)
+

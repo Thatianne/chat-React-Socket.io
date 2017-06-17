@@ -12,7 +12,7 @@ export default class MessageOther extends React.Component{
 		return (
 			<div className="row">
 				<div className="alert alert-entered">
-					{this.props.name} {this.props.message}				
+					{this.props.name} joint this group				
 				</div>
 			</div>
 			
@@ -22,5 +22,4 @@ export default class MessageOther extends React.Component{
 
 MessageOther.propTypes = {
   name: PropTypes.string.isRequired,	  
-  message:PropTypes.string.isRequired
 };
