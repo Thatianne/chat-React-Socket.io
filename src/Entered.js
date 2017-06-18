@@ -10,7 +10,7 @@ export default class MessageOther extends React.Component{
 
 	render(){
 		return (
-			<div className="row">
+			<div>
 				<div className="alert alert-entered">
 					{this.props.name} joint this group				
 				</div>

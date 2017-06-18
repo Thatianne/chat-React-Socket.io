@@ -80,7 +80,7 @@ export default class ChatContainer extends React.Component{
 				if(message.from == this.props.name){
 					block = <MyMessage key={index+'m'} message={message.body}/>
 				}else{
-					block = <MessageOther key={index} name={message.from} message={message.body}/>
+					block = <MessageOther key={index} name={message.from} email={message.email} message={message.body}/>
 				}
 				return block
 
@@ -92,11 +92,14 @@ export default class ChatContainer extends React.Component{
 		all = all.reverse()
 	
 		return(
+
 			<div className="centering">
+			<div className="alert alert-success welcome" role="alert">Welcome!</div>
 				<div className="box">
 					{all}
 				</div>
 				<div className="input-message">
+				   	<i className="glyphicon glyphicon-chevron-right"></i>
 					<input 
 						type="text" 
 						className="form-control" 
@@ -104,7 +107,6 @@ export default class ChatContainer extends React.Component{
 						onKeyUp={this.handleSubmit}
 						aria-describedby="basic-addon1"/>
 				</div>				
-				
 			</div>
 		)
 	}

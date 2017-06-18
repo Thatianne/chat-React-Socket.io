@@ -11,12 +11,12 @@ export default class MessageOther extends React.Component{
 
 	render(){
 		return (
-			<div className="row">
-				<div>
-					<h3>{this.props.name}</h3>
+			<div className = "msg-other">
+				<div className="row msg-from">
+					<span id="name">{this.props.name}</span><span id="email">{this.props.email}</span>
 				</div>
 				<div className="row">
-					<div className="col-md-7 .col-sm-5">
+					<div className="col-md-7 col-sm-5">
 						<div className = "alert alert-message-other">
 							{this.props.message}
 						</div>
@@ -31,6 +31,6 @@ export default class MessageOther extends React.Component{
 
 MessageOther.propTypes = {
   name: PropTypes.string.isRequired,
-  //email:PropTypes.string.isRequired,
+  email:PropTypes.string.isRequired,
   message:PropTypes.string.isRequired
 };
