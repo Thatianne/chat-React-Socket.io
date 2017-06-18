@@ -34,12 +34,29 @@
     width:100%;
 }
 .input-message input{
-	height: 55px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+ 	height: 55px;
 	padding-left: 30px;
 }
 
 .row{
 	margin-right: 10px;
- 	 margin-left: 10px;
+ 	margin-left: 10px;
 }
+
+.register{
+  padding: 15% 35% 15% 35%;
+}
+
+.register input{
+  width: 100%;
+  margin-bottom: 3%;  
+}
+
+.register .btn{
+  float: right;
+}
+
 

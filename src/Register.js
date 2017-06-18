@@ -34,12 +34,31 @@ export default class Register extends React.Component{
 
 	render(){
 		return (
-			<div>
-				<form onSubmit={this.handleOnSubmit}>  
-					<input type="text" value={this.state.name} onChange={this.handleOnChangeName}/>
-					<input type="email" value={this.state.email} onChange={this.handleOnChangeEmail}/>
-		            <button type='submit'> Submit </button>
-		        </form>				
+			<div className="register">
+				<h3>Sign in</h3>
+				<div>
+					<form onSubmit={this.handleOnSubmit}>
+						
+						<h3 className="lb"><small>Name</small></h3>						
+						<input 
+							className="form-control" 
+							type="text" 
+							aria-describedby="basic-addon1" 
+							placeholder="Name" 
+							value={this.state.name} 
+							onChange={this.handleOnChangeName}/>
+
+						<h3 className="lb"><small>E-mail</small></h3>
+						<input 
+							className="form-control" 
+							type="email" 
+							placeholder ="E-mail" 
+							value={this.state.email} 
+							onChange={this.handleOnChangeEmail}/>
+			            
+			            <button type='submit' className="btn btn-primary"> Sign in </button>
+			        </form>
+		        </div>				
 			</div>
 			
 		)
