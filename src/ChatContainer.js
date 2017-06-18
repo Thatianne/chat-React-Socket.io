@@ -45,6 +45,8 @@ export default class ChatContainer extends React.Component{
 		})
 	}
 
+
+
 	handleSubmit = event =>{
 		const body = event.target.value //o valor do input
 		if(event.keyCode == 13 && body){// se o enter foi pressionado e tiver conteúdo no input
@@ -53,12 +55,10 @@ export default class ChatContainer extends React.Component{
 				from: this.props.name,
 				email:this.props.email
 
-			}			
+			}	
 			//o novo estado de messages é a concatenação da nova mensagem com as mensagem antigas
 			this.setState({messages:[message, ...this.state.messages]}) 
-
 			const msg = message.from+" "+message.email+" "+message.body
-			console.log(msg)
 			// envia mensagem para o servidor
 			this.socket.emit('message', msg)
 			event.target.value = "" //deixa input vazio
@@ -66,13 +66,30 @@ export default class ChatContainer extends React.Component{
 		
 	}
 
+	send = event =>{
+		const body = document.getElementById('input-msg').value
+		console.log(body)
+		const message  = {
+				body,
+				from: this.props.name,
+				email:this.props.email
+
+			}	
+			//o novo estado de messages é a concatenação da nova mensagem com as mensagem antigas
+			this.setState({messages:[message, ...this.state.messages]}) 
+			const msg = message.from+" "+message.email+" "+message.body
+			// envia mensagem para o servidor
+			this.socket.emit('message', msg)
+			event.target.value = "" //deixa input vazio
+			console.log("conseguiu")
+
+			document.getElementById('input-msg').value=""
+	}
+
 	render(){
 		var all
 		
 		//percorrer todas as mensagens e colocá-la em um item da lista
-
-		//console.log(this.state.messages)
-		console.log(this.state.messages)
 		all = this.state.messages.map((message, index)=>{
 
 			if(message.body != 'join'){
@@ -94,13 +111,14 @@ export default class ChatContainer extends React.Component{
 		return(
 
 			<div className="centering">
-			<div className="alert alert-success welcome" role="alert">Welcome!</div>
+			<div className="alert alert-success welcome" role="alert">Welcome {this.props.name}!</div>
 				<div className="box">
 					{all}
 				</div>
 				<div className="input-message">
-				   	<i className="glyphicon glyphicon-chevron-right"></i>
+				   	<i className="glyphicon glyphicon-chevron-right" onClick={this.send}></i>
 					<input 
+						id="input-msg"
 						type="text" 
 						className="form-control" 
 						placeholder="Escreva sua mensagem"
