@@ -16,10 +16,10 @@ export default class MessageOther extends React.Component{
 					<span id="name">{this.props.name}</span><span id="email">{this.props.email}</span>
 				</div>
 				<div className="row">
-					<div className="col-md-7 col-sm-5">
-						<div className = "alert alert-message-other">
-							{this.props.message}
-						</div>
+					<div className="col-md-7 col-sm-7 alert alert-message-other">
+						
+						{this.props.message}
+						
 					</div>
 									
 				</div>

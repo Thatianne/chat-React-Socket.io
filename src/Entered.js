@@ -12,7 +12,7 @@ export default class MessageOther extends React.Component{
 		return (
 			<div>
 				<div className="alert alert-entered">
-					{this.props.name} joint this group				
+					{this.props.name} join this group				
 				</div>
 			</div>
 			

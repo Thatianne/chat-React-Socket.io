@@ -9,6 +9,7 @@
   	background-color: rgb(245,245,245);
   	/*border-color: rgb(235,235,235);*/
   	border-radius: 10px;
+    word-wrap: break-word;
 }
 .msg-other{
 
@@ -33,6 +34,7 @@
   	float: right;
   	width: 50%;
   	margin: 10px 15px;
+    word-wrap: break-word;
 }
 
 .centering{
