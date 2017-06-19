@@ -1,13 +1,11 @@
 .alert-entered {
   	color: #000000;
   	background-color: rgb(235,235,235);
-  	/*border-color: #D3D3D3;*/
   	text-align: center;
 }
 .alert-message-other{
     color: #000000;
-  	background-color: rgb(245,245,245);
-  	/*border-color: rgb(235,235,235);*/
+  	background-color: rgb(245,245,245);	
   	border-radius: 10px;
     word-wrap: break-word;
 }
@@ -29,10 +27,8 @@
 .alert-my-message{	
     color: #000000;
   	background-color: rgb(30,144,255);
-  	/*border-color: rgb(65,105,225);*/
   	border-radius: 10px;
-  	float: right;
-  	width: 50%;
+  	float: right;  	
   	margin: 10px 15px;
     word-wrap: break-word;
 }

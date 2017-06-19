@@ -14,8 +14,7 @@ export default class MessageOther extends React.Component{
 				<div className="alert alert-entered">
 					{this.props.name} join this group				
 				</div>
-			</div>
-			
+			</div>			
 		)
 	}
 }

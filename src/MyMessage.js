@@ -11,7 +11,7 @@ export default class MessageOther extends React.Component{
 	render(){
 		return(
 			<div className="row">
-				<div className="alert alert-my-message">
+				<div className="col-md-7 col-sm-7 col-xs-7 alert alert-my-message">
 					{this.props.message}
 				</div>
 			</div>

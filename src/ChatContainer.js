@@ -12,8 +12,7 @@ export default class ChatContainer extends React.Component{
 		super(props) //propriedades do componente
 		this.state = {messages: []} //definindo o estado inicial, com nenhuma mensagem
 
-		const enter  = this.props.name + " "+ this.props.email +' join'				
-		 
+		const enter  = this.props.name + " "+ this.props.email +' join'		 
 		this.socket = io('/')
 		// envia mensagem para o servidor
 		this.socket.emit('message', enter)
@@ -38,14 +37,9 @@ export default class ChatContainer extends React.Component{
 				email:other[1],
 				body: auxBody
 			}
-
 			this.setState({messages:[msgOther, ...this.state.messages]})
-
-
 		})
 	}
-
-
 
 	handleSubmit = event =>{
 		const body = event.target.value //o valor do input
@@ -54,7 +48,6 @@ export default class ChatContainer extends React.Component{
 				body,
 				from: this.props.name,
 				email:this.props.email
-
 			}	
 			//o novo estado de messages é a concatenação da nova mensagem com as mensagem antigas
 			this.setState({messages:[message, ...this.state.messages]}) 
@@ -62,33 +55,26 @@ export default class ChatContainer extends React.Component{
 			// envia mensagem para o servidor
 			this.socket.emit('message', msg)
 			event.target.value = "" //deixa input vazio
-		}
-		
+		}		
 	}
 
 	send = event =>{
-		const body = document.getElementById('input-msg').value
-		console.log(body)
+		const body = document.getElementById('input-msg').value		
 		const message  = {
 				body,
 				from: this.props.name,
 				email:this.props.email
-
 			}	
 			//o novo estado de messages é a concatenação da nova mensagem com as mensagem antigas
 			this.setState({messages:[message, ...this.state.messages]}) 
 			const msg = message.from+" "+message.email+" "+message.body
 			// envia mensagem para o servidor
-			this.socket.emit('message', msg)
-			event.target.value = "" //deixa input vazio
-			console.log("conseguiu")
-
+			this.socket.emit('message', msg)					
 			document.getElementById('input-msg').value=""
 	}
 
 	render(){
-		var all
-		
+		var all		
 		//percorrer todas as mensagens e colocá-la em um item da lista
 		all = this.state.messages.map((message, index)=>{
 
